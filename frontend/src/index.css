@@ -4,13 +4,22 @@
   box-sizing: border-box;
 }
 
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
 body {
-  font-family: Inter, Arial, sans-serif;
+  font-family: system-ui, -apple-system, 'Segoe UI', Arial, sans-serif;
   background: #F5F8FC;
   color: #334E68;
 }
 
-button, input, select, textarea {
+button,
+input,
+select,
+textarea {
   font: inherit;
 }
 
