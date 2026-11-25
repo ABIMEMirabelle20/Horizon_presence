@@ -1,0 +1,38 @@
+.absences__subtitle { margin: 0 0 1.5rem; opacity: 0.75; }
+
+.absences__stats {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1rem; margin-bottom: 1.5rem;
+}
+.absences__stat {
+  background: var(--color-surface); border-radius: var(--radius);
+  box-shadow: var(--shadow); padding: 1.25rem;
+}
+.absences__stat-label { font-size: 0.85rem; opacity: 0.75; }
+.absences__stat-value { font-size: 1.8rem; font-weight: 700; margin-top: 0.25rem; }
+.absences__stat--danger .absences__stat-value { color: var(--color-danger); }
+.absences__stat--warning .absences__stat-value { color: var(--color-warning); }
+
+.absences__filters { display: flex; gap: 0.5rem; margin-bottom: 1rem; flex-wrap: wrap; }
+.absences__filter {
+  padding: 0.5rem 1rem; border: 1px solid var(--color-section-bg);
+  border-radius: 999px; background: var(--color-surface);
+  color: var(--color-text); cursor: pointer; font-size: 0.9rem;
+}
+.absences__filter--active {
+  background: var(--color-primary); border-color: var(--color-primary); color: #fff;
+}
+
+.absences__wrapper {
+  overflow-x: auto; background: var(--color-surface);
+  border-radius: var(--radius); box-shadow: var(--shadow);
+}
+.absences__table { width: 100%; min-width: 620px; border-collapse: collapse; }
+.absences__table th {
+  text-align: left; padding: 0.9rem 1rem; font-size: 0.85rem;
+  background: var(--color-selected-bg);
+}
+.absences__table td { padding: 0.9rem 1rem; border-top: 1px solid var(--color-bg); }
+.absences__link { color: var(--color-primary); font-weight: 600; text-decoration: none; }
+.absences__link:hover { text-decoration: underline; }
+.absences__empty { padding: 2rem; text-align: center; opacity: 0.6; }

@@ -1,0 +1,14 @@
+.sidebar {
+  width: 250px; min-height: 100vh; padding: 1.5rem 1rem;
+  background: var(--color-sidebar); color: #fff;
+  display: flex; flex-direction: column; gap: 1.5rem;
+}
+.sidebar__brand { font-size: 1.2rem; font-weight: 700; padding: 0 0.5rem; }
+.sidebar__nav { display: flex; flex-direction: column; gap: 0.25rem; }
+.sidebar__link {
+  display: flex; align-items: center; gap: 0.75rem;
+  padding: 0.7rem 0.75rem; border-radius: 8px;
+  color: rgba(255, 255, 255, 0.8); text-decoration: none; font-size: 0.95rem;
+}
+.sidebar__link:hover { background: rgba(255, 255, 255, 0.1); }
+.sidebar__link--active { background: var(--color-primary); color: #fff; }

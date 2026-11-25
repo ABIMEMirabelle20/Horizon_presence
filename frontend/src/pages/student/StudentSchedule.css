@@ -1,0 +1,23 @@
+.schedule__subtitle { margin: 0 0 1.5rem; opacity: 0.75; }
+
+.schedule__wrapper {
+  overflow-x: auto; background: var(--color-surface);
+  border-radius: var(--radius); box-shadow: var(--shadow); padding: 1rem;
+}
+.schedule { width: 100%; min-width: 700px; border-collapse: separate; border-spacing: 6px; }
+.schedule th {
+  background: var(--color-selected-bg); color: var(--color-text);
+  padding: 0.7rem; border-radius: 8px; font-size: 0.9rem;
+}
+.schedule td { height: 70px; text-align: center; vertical-align: middle; }
+
+.schedule__course {
+  height: 100%; padding: 0.5rem; border-radius: 8px;
+  display: flex; flex-direction: column; justify-content: center; gap: 0.15rem;
+  font-size: 0.85rem;
+}
+.schedule__course span { font-size: 0.75rem; opacity: 0.8; }
+.schedule__course--blue { background: var(--color-section-bg); color: var(--color-primary); }
+.schedule__course--sky { background: var(--color-selected-bg); color: var(--color-secondary); }
+.schedule__course--teal { background: var(--color-success-soft); color: #167a6d; }
+.schedule__empty { opacity: 0.4; }

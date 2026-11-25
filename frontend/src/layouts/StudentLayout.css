@@ -1,0 +1,2 @@
+.student-layout { display: flex; min-height: 100vh; background: var(--color-bg); }
+.student-layout__main { flex: 1; padding: 2rem; color: var(--color-text); }

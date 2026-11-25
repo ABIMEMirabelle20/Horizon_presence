@@ -1,0 +1,19 @@
+:root {
+  --color-sidebar: #244568;      /* Deep Horizon */
+  --color-primary: #2864dc;      /* Royal Blue */
+  --color-secondary: #4f83cc;    /* Slate Blue */
+  --color-section-bg: #dcebfa;   /* Soft Sky */
+  --color-selected-bg: #eaf2fc;  /* Ice Blue */
+  --color-surface: #ffffff;      /* Pure White */
+  --color-bg: #f5f8fc;           /* Cloud Gray */
+  --color-success: #22b8a5;      /* Fresh Teal */
+  --color-text: #334e68;         /* Slate Text */
+  --color-success-soft: #d3f3ee;
+  --color-danger: #d64545;
+  --color-danger-soft: #fbe3e3;
+  --color-warning: #b86e14;
+  --color-warning-soft: #fdf0dc;
+  --font-main: 'Inter', system-ui, 'Segoe UI', sans-serif;
+  --radius: 12px;
+  --shadow: 0 2px 8px rgba(36, 69, 104, 0.08);
+}
