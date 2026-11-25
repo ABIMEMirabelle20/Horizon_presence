@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { X, Calendar, Clock, MapPin, BookOpen, AlertTriangle } from 'lucide-react';
+import { X, Clock, AlertTriangle } from 'lucide-react';
 
 const DAYS = [
   { id: 1, label: 'Lundi' },

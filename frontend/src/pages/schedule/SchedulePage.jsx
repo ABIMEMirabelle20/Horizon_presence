@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Plus, RefreshCw, AlertCircle, Calendar } from 'lucide-react';
+import { Plus, RefreshCw, AlertCircle } from 'lucide-react';
 import { getClasses } from '../../api/courses';
 import { getCourses } from '../../api/courses';
 import {

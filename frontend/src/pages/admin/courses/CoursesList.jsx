@@ -8,8 +8,7 @@ import {
   RefreshCw, 
   AlertCircle, 
   ChevronLeft, 
-  ChevronRight,
-  GraduationCap
+  ChevronRight
 } from 'lucide-react';
 import { getCourses, createCourse, updateCourse, deleteCourse, getClasses, getTeachers } from '../../../api/courses';
 import CourseModal from './CourseModal';
@@ -307,14 +306,17 @@ export default function CoursesList() {
         </div>
       )}
 
-      <CourseModal
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
-        onSave={handleSaveCourse}
-        course={editingCourse}
-        classes={classes}
-        teachers={teachers}
-      />
+      {isModalOpen && (
+        <CourseModal
+          key={editingCourse?.id || 'create'}
+          isOpen={isModalOpen}
+          onClose={() => setIsModalOpen(false)}
+          onSave={handleSaveCourse}
+          course={editingCourse}
+          classes={classes}
+          teachers={teachers}
+        />
+      )}
 
       {deleteConfirmId && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/40 backdrop-blur-sm animate-fadeIn">

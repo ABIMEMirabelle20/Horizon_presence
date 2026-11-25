@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Menu, Bell, User, Calendar, BookOpen } from 'lucide-react';
+import { Menu, Bell, Calendar, BookOpen } from 'lucide-react';
 
 export default function Navbar({ onToggleSidebar }) {
   return (
@@ -13,7 +13,6 @@ export default function Navbar({ onToggleSidebar }) {
           <Menu className="w-5 h-5" />
         </button>
 
-        {/* Quick view switcher for demonstration */}
         <div className="hidden sm:flex items-center gap-2 text-xs bg-slate-50 p-1 rounded-xl border border-slate-200/60">
           <Link
             to="/admin/cours"

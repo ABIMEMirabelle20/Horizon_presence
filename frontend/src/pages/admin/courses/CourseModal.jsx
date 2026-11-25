@@ -1,41 +1,18 @@
-import { useState, useEffect } from 'react';
-import { X, BookOpen, Layers, User, Hash, Clock } from 'lucide-react';
+import { useState } from 'react';
+import { X, BookOpen } from 'lucide-react';
 
 export default function CourseModal({ isOpen, onClose, onSave, course, classes = [], teachers = [] }) {
   const [formData, setFormData] = useState({
-    name: '',
-    code: '',
-    school_class_id: '',
-    teacher_id: '',
-    hours: 30,
-    theme: 'blue',
+    name: course?.name || '',
+    code: course?.code || '',
+    school_class_id: course?.school_class_id || (classes[0]?.id ?? ''),
+    teacher_id: course?.teacher_id || (teachers[0]?.id ?? ''),
+    hours: course?.hours || 30,
+    theme: course?.theme || 'blue',
   });
 
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
-
-  useEffect(() => {
-    if (course) {
-      setFormData({
-        name: course.name || '',
-        code: course.code || '',
-        school_class_id: course.school_class_id || (classes[0]?.id ?? ''),
-        teacher_id: course.teacher_id || (teachers[0]?.id ?? ''),
-        hours: course.hours || 30,
-        theme: course.theme || 'blue',
-      });
-    } else {
-      setFormData({
-        name: '',
-        code: '',
-        school_class_id: classes[0]?.id || '',
-        teacher_id: teachers[0]?.id || '',
-        hours: 30,
-        theme: 'blue',
-      });
-    }
-    setErrors({});
-  }, [course, classes, teachers, isOpen]);
 
   if (!isOpen) return null;
 

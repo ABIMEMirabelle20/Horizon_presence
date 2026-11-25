@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Clock, MapPin, User, Plus } from 'lucide-react';
+import { MapPin, User, Plus } from 'lucide-react';
 
 const DAYS = [
   { id: 1, name: 'Lundi' },
@@ -43,23 +43,19 @@ export default function ScheduleGrid({
 }) {
   const [selectedMobileDay, setSelectedMobileDay] = useState(1);
 
-  // Match slot with day and time
   const findSlot = (dayId, slotStart, slotEnd) => {
     return schedules.find((s) => {
       if (Number(s.day_of_week) !== dayId) return false;
-      // Exact or overlapping match
       return s.start_time <= slotStart && s.end_time >= slotEnd;
     }) || schedules.find((s) => Number(s.day_of_week) === dayId && s.start_time === slotStart);
   };
 
-  // Filter schedules for the selected mobile day
   const mobileDaySchedules = schedules
     .filter((s) => Number(s.day_of_week) === Number(selectedMobileDay))
     .sort((a, b) => a.start_time.localeCompare(b.start_time));
 
   return (
     <div className="w-full">
-      {/* Desktop & Tablet View (Grid 6 columns) */}
       <div className="hidden md:block bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden">
         <div className="overflow-x-auto">
           <table className="w-full border-collapse text-center">
@@ -134,9 +130,7 @@ export default function ScheduleGrid({
         </div>
       </div>
 
-      {/* Mobile View (Day Tabs + Cards List) */}
       <div className="md:hidden space-y-4">
-        {/* Day selector tabs */}
         <div className="flex items-center gap-1.5 overflow-x-auto pb-2 scrollbar-none">
           {DAYS.map((day) => {
             const isSelected = selectedMobileDay === day.id;
@@ -157,7 +151,6 @@ export default function ScheduleGrid({
           })}
         </div>
 
-        {/* Schedule cards list */}
         {mobileDaySchedules.length === 0 ? (
           <div className="bg-white rounded-2xl p-8 text-center border border-slate-100 shadow-sm">
             <p className="text-sm text-slate-400">Aucun cours planifié ce jour.</p>
