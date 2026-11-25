@@ -14,13 +14,12 @@ import ScheduleDetailsModal from './ScheduleDetailsModal';
 
 export default function SchedulePage({ isAdmin = false }) {
   const [classes, setClasses] = useState([]);
-  const [selectedClassId, setSelectedClassId] = useState(2); // L2-IA default
+  const [selectedClassId, setSelectedClassId] = useState(5); // 3ème A default
   const [courses, setCourses] = useState([]);
   const [schedules, setSchedules] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  // Modals state
   const [isSlotModalOpen, setIsSlotModalOpen] = useState(false);
   const [editingSlot, setEditingSlot] = useState(null);
   const [activeDetailsSlot, setActiveDetailsSlot] = useState(null);
@@ -98,7 +97,7 @@ export default function SchedulePage({ isAdmin = false }) {
         <div>
           <h1 className="text-2xl font-bold text-ink tracking-tight">Emploi du temps</h1>
           <p className="text-sm text-slate-500 mt-0.5">
-            Consultez l'emploi du temps par classe.
+            Consultez et planifiez l'emploi du temps par classe d'enseignement.
           </p>
         </div>
 
@@ -111,7 +110,7 @@ export default function SchedulePage({ isAdmin = false }) {
             >
               {classes.map((cls) => (
                 <option key={cls.id} value={cls.id}>
-                  {cls.name}
+                  Classe : {cls.name} ({cls.level})
                 </option>
               ))}
             </select>

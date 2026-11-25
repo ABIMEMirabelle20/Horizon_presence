@@ -91,7 +91,8 @@ export default function CoursesList() {
     const matchesSearch =
       course.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
       course.code.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      course.teacher_name.toLowerCase().includes(searchQuery.toLowerCase());
+      course.teacher_name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      course.school_class_name.toLowerCase().includes(searchQuery.toLowerCase());
 
     const matchesLevel =
       selectedLevel === 'all' ||
@@ -113,7 +114,7 @@ export default function CoursesList() {
         <div>
           <h1 className="text-2xl font-bold text-ink tracking-tight">Gestion des cours</h1>
           <p className="text-sm text-slate-500 mt-0.5">
-            Organisez les cours et leurs informations.
+            Organisez les cours et les programmes par classe (primaire et secondaire).
           </p>
         </div>
         <button
@@ -136,7 +137,7 @@ export default function CoursesList() {
               setSearchQuery(e.target.value);
               setCurrentPage(1);
             }}
-            placeholder="Rechercher un cours..."
+            placeholder="Rechercher une matière, classe..."
             className="w-full pl-10 pr-4 py-2 text-sm bg-cloud border border-slate-200/80 rounded-xl focus:outline-none focus:ring-2 focus:ring-royal/30 focus:border-royal transition-all placeholder:text-slate-400"
           />
         </div>
@@ -151,11 +152,10 @@ export default function CoursesList() {
             className="w-full sm:w-48 px-3.5 py-2 text-sm bg-cloud border border-slate-200/80 rounded-xl focus:outline-none focus:ring-2 focus:ring-royal/30 focus:border-royal text-ink transition-all"
           >
             <option value="all">Tous les niveaux</option>
-            <option value="L1">L1</option>
-            <option value="L2">L2</option>
-            <option value="L2-IA">L2-IA</option>
-            <option value="L3">L3</option>
-            <option value="L3-GL">L3-GL</option>
+            <option value="Primaire">Primaire (CP, CE, CM)</option>
+            <option value="Collège">Collège (6ème - 3ème)</option>
+            <option value="Lycée">Lycée (2nde, Tle)</option>
+            <option value="Lycée Technique">Enseignement Technique</option>
           </select>
         </div>
       </div>
@@ -194,7 +194,7 @@ export default function CoursesList() {
           <p className="text-sm text-slate-500 mt-1 max-w-sm mx-auto">
             {searchQuery || selectedLevel !== 'all'
               ? 'Aucun résultat ne correspond à vos critères de recherche.'
-              : 'Commencez par ajouter le premier cours de l’établissement.'}
+              : 'Commencez par ajouter un cours pour une classe.'}
           </p>
           <button
             type="button"
@@ -211,8 +211,8 @@ export default function CoursesList() {
             <table className="w-full text-left border-collapse">
               <thead>
                 <tr className="border-b border-slate-100 bg-slate-50/75 text-xs font-semibold text-ink/70 uppercase tracking-wider">
-                  <th className="py-3.5 px-6">Cours</th>
-                  <th className="py-3.5 px-6">Niveau</th>
+                  <th className="py-3.5 px-6">Matière / Cours</th>
+                  <th className="py-3.5 px-6">Classe & Niveau</th>
                   <th className="py-3.5 px-6">Enseignant</th>
                   <th className="py-3.5 px-6 text-right">Actions</th>
                 </tr>
@@ -233,9 +233,14 @@ export default function CoursesList() {
                       </div>
                     </td>
                     <td className="py-4 px-6">
-                      <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-mist text-royal">
-                        {course.school_class_name || course.level}
-                      </span>
+                      <div className="flex items-center gap-2">
+                        <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-mist text-royal">
+                          {course.school_class_name}
+                        </span>
+                        <span className="text-xs text-slate-400">
+                          ({course.level})
+                        </span>
+                      </div>
                     </td>
                     <td className="py-4 px-6 text-slate-700 font-medium">
                       {course.teacher_name}

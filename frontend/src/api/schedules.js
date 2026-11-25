@@ -1,8 +1,8 @@
 import { initialSchedules } from './mocks/schedules';
 import { initialCourses, initialClasses, initialTeachers } from './mocks/courses';
 
-const STORAGE_KEY_SCHEDULES = 'horizon_mock_schedules';
-const wait = (ms = 250) => new Promise((resolve) => setTimeout(resolve, ms));
+const STORAGE_KEY_SCHEDULES = 'horizon_mock_schedules_v2';
+const wait = (ms = 150) => new Promise((resolve) => setTimeout(resolve, ms));
 
 function loadSchedules() {
   try {
@@ -51,7 +51,6 @@ function checkConflict(newSlot, ignoreId = null) {
     const slotStart = timeToMinutes(slot.start_time);
     const slotEnd = timeToMinutes(slot.end_time);
 
-    // Overlap condition: startA < endB && startB < endA
     const overlaps = newStart < slotEnd && slotStart < newEnd;
 
     if (overlaps) {
@@ -126,7 +125,7 @@ export async function createSchedule(payload) {
     day_of_week: Number(payload.day_of_week),
     start_time: payload.start_time,
     end_time: payload.end_time,
-    room: payload.room ? payload.room.trim() : 'Salle principale',
+    room: payload.room ? payload.room.trim() : 'Salle de classe',
     theme: course ? course.theme : 'blue',
   };
 

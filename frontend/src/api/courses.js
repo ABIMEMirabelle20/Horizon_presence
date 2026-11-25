@@ -1,10 +1,10 @@
 import { initialCourses, initialClasses, initialTeachers } from './mocks/courses';
 
-const STORAGE_KEY_COURSES = 'horizon_mock_courses';
-const STORAGE_KEY_CLASSES = 'horizon_mock_classes';
-const STORAGE_KEY_TEACHERS = 'horizon_mock_teachers';
+const STORAGE_KEY_COURSES = 'horizon_mock_courses_v2';
+const STORAGE_KEY_CLASSES = 'horizon_mock_classes_v2';
+const STORAGE_KEY_TEACHERS = 'horizon_mock_teachers_v2';
 
-const wait = (ms = 250) => new Promise((resolve) => setTimeout(resolve, ms));
+const wait = (ms = 150) => new Promise((resolve) => setTimeout(resolve, ms));
 
 function loadFromStorage(key, fallback) {
   try {
@@ -79,7 +79,7 @@ export async function createCourse(payload) {
       name: !payload.name ? ['Le nom du cours est obligatoire.'] : undefined,
       code: !payload.code ? ['Le code du cours est obligatoire.'] : undefined,
       school_class_id: !payload.school_class_id ? ['La classe est obligatoire.'] : undefined,
-      teacher_id: !payload.teacher_id ? ['L\'enseignant est obligatoire.'] : undefined,
+      teacher_id: !payload.teacher_id ? ["L'enseignant est obligatoire."] : undefined,
     };
     throw error;
   }
@@ -92,10 +92,10 @@ export async function createCourse(payload) {
     name: payload.name.trim(),
     code: payload.code.trim().toUpperCase(),
     school_class_id: Number(payload.school_class_id),
-    school_class_name: selectedClass ? selectedClass.name : 'N/A',
-    level: selectedClass ? selectedClass.level.split(' ')[0] || selectedClass.name : 'N/A',
+    school_class_name: selectedClass ? selectedClass.name : 'Classe',
+    level: selectedClass ? selectedClass.level : 'Général',
     teacher_id: Number(payload.teacher_id),
-    teacher_name: selectedTeacher ? selectedTeacher.name : 'N/A',
+    teacher_name: selectedTeacher ? selectedTeacher.name : 'Enseignant',
     hours: Number(payload.hours) || 30,
     theme: payload.theme || 'blue',
   };
@@ -122,7 +122,7 @@ export async function updateCourse(id, payload) {
     code: payload.code.trim().toUpperCase(),
     school_class_id: Number(payload.school_class_id),
     school_class_name: selectedClass ? selectedClass.name : coursesList[index].school_class_name,
-    level: selectedClass ? selectedClass.level.split(' ')[0] || selectedClass.name : coursesList[index].level,
+    level: selectedClass ? selectedClass.level : coursesList[index].level,
     teacher_id: Number(payload.teacher_id),
     teacher_name: selectedTeacher ? selectedTeacher.name : coursesList[index].teacher_name,
     hours: Number(payload.hours) || coursesList[index].hours,
@@ -143,11 +143,11 @@ export async function deleteCourse(id) {
 }
 
 export async function getClasses() {
-  await wait(100);
+  await wait(50);
   return { data: classesList };
 }
 
 export async function getTeachers() {
-  await wait(100);
+  await wait(50);
   return { data: teachersList };
 }
