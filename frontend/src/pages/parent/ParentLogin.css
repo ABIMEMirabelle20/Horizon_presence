@@ -1,0 +1,28 @@
+/* 1. Conteneur principal de la page de connexion */
+.hp-login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* Prend toute la hauteur de l'écran */
+  padding: 20px;     /* Évite que la carte ne touche les bords sur mobile */
+  box-sizing: border-box;
+}
+
+/* 2. La carte de connexion s'adapte à la largeur disponible */
+.hp-login__card {
+  width: 100%;
+  max-width: 420px; /* Limite la largeur sur grand écran pour garder un beau design */
+  padding: 30px;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  text-align: center;
+  box-sizing: border-box;
+}
+
+/* 3. Adaptation spécifique pour les petits écrans (smartphones) */
+@media screen and (max-width: 480px) {
+  .hp-login__card {
+    padding: 20px; /* Réduit un peu les marges intérieures sur très petit écran */
+  }
+}

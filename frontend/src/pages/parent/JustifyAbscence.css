@@ -1,0 +1,37 @@
+/* 1. Disposition générale en deux colonnes (Formulaire à gauche, Aside à droite) */
+.hp-form-layout {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 30px;
+  align-items: start;
+}
+
+/* 2. Style des actions de formulaire (Boutons empilés ou côte à côte) */
+.hp-form__actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-top: 25px;
+}
+
+/* 3. Adaptation spécifique pour les tablettes et smartphones */
+@media screen and (max-width: 900px) {
+  .hp-form-layout {
+    grid-template-columns: 1fr; /* Passe à une seule colonne sur mobile */
+    gap: 20px;
+  }
+}
+
+/* 4. Ajustements pour les très petits écrans */
+@media screen and (max-width: 480px) {
+  .hp-form__actions {
+    flex-direction: column;
+    align-items: stretch; /* Les boutons prennent toute la largeur sur mobile */
+  }
+  
+  .hp-form__actions .hp-btn {
+    width: 100%;
+    text-align: center;
+  }
+}

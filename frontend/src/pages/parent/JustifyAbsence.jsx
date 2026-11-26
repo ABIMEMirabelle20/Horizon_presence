@@ -5,7 +5,7 @@ import { children, formatFrenchDate } from '../../data/parentData'
 import { useParent } from '../../context/useParent.js'
 import Badge from '../../components/ui/Badge'
 import Calendar from '../../components/ui/Calendar'
-
+import './JustifyAbscence.css'
 const MAX_FILE_SIZE = 2 * 1024 * 1024
 
 export default function JustifyAbsence() {

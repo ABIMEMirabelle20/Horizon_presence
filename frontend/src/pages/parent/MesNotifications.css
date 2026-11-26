@@ -1,0 +1,161 @@
+/* Conteneur principal de la page */
+.hp-notif-container {
+  padding: 30px;
+  box-sizing: border-box;
+}
+
+/* En-tête (Titre + Bouton "Tout marquer comme lu") */
+.hp-notif-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.hp-notif-title {
+  color: #0f2e5b;
+  margin: 0;
+  font-size: 24px;
+}
+
+.hp-notif-btn-all {
+  background: none;
+  border: none;
+  color: #3b82f6;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.hp-notif-btn-all:hover {
+  text-decoration: underline;
+}
+
+/* Carte globale de la liste */
+.hp-notif-card-box {
+  background-color: white;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* Ligne d'une notification */
+.hp-notif-item {
+  display: flex;
+  gap: 15px;
+  padding: 15px;
+  border-bottom: 1px solid #edf2f7;
+  align-items: center;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  transition: background-color 0.2s ease;
+}
+
+.hp-notif-item.unread {
+  background-color: #f0f9ff;
+}
+
+.hp-notif-item.read {
+  background-color: transparent;
+}
+
+/* Icône ronde (absence ou autre) */
+.hp-notif-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+.hp-notif-icon.absence {
+  background-color: #fee2e2;
+  color: #ef4444;
+}
+
+.hp-notif-icon.default {
+  background-color: #dbeafe;
+  color: #3b82f6;
+}
+
+/* Contenu textuel */
+.hp-notif-content {
+  flex: 1;
+  min-width: 0; /* Évite les dépassements de texte sur mobile */
+}
+
+.hp-notif-item-title {
+  margin: 0 0 5px 0;
+  font-weight: bold;
+  color: #0f2e5b;
+  font-size: 15px;
+}
+
+.hp-notif-item-msg {
+  margin: 0 0 5px 0;
+  color: #4a5568;
+  font-size: 13px;
+  word-break: break-word;
+}
+
+.hp-notif-item-date {
+  margin: 0;
+  color: #a0aec0;
+  font-size: 12px;
+}
+
+/* Bouton individuel de lecture */
+.hp-notif-action-btn {
+  border-radius: 6px;
+  padding: 6px 12px;
+  font-size: 12px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-right: 10px;
+  white-space: nowrap;
+}
+
+.hp-notif-action-btn.read {
+  background-color: #edf2f7;
+  color: #4a5568;
+  border: 1px solid #cbd5e0;
+}
+
+.hp-notif-action-btn.unread {
+  background-color: #ebf8ff;
+  color: #2b6cb0;
+  border: 1px solid #bee3f8;
+}
+
+/* Point bleu de non-lu */
+.hp-notif-dot {
+  width: 10px;
+  height: 10px;
+  background-color: #3b82f6;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* Responsive pour les petits écrans (smartphones) */
+@media screen and (max-width: 640px) {
+  .hp-notif-container {
+    padding: 15px;
+  }
+
+  .hp-notif-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .hp-notif-action-btn {
+    margin-top: 10px;
+    margin-right: 0;
+    width: 100%;
+    text-align: center;
+  }
+}

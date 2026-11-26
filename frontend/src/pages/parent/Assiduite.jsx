@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import { Link, useSearchParams } from 'react-router-dom'
 import { Check, Clock3, Printer, X } from 'lucide-react'
+import './Assiduite.css'
 import {
   absencesForChild,
   children,

@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom'
 import { LockKeyhole } from 'lucide-react'
 import { useParent } from '../../context/useParent.js'
+import './ParentLogin.css'
 
 // Connexion de démonstration : aucun mot de passe n’est vérifié côté serveur.
 export default function ParentLogin() {

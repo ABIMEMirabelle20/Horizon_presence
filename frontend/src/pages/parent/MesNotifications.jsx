@@ -1,21 +1,19 @@
 import React, { useState } from 'react';
 import { initialNotifications } from '../../data/parentData';
+import './MesNotifications.css';
 
 export default function MesNotifications() {
-  // On initialise l'état avec les données du fichier
   const [notifications, setNotifications] = useState(initialNotifications || []);
 
-  // 1. Fonction "Tout marquer comme lu" corrigée de façon explicite
   const handleMarkAllAsRead = () => {
     setNotifications((prevNotifications) =>
       prevNotifications.map((notif) => ({
         ...notif,
-        read: true, // Force explicitement toutes les notifications à l'état "lu"
+        read: true,
       }))
     );
   };
 
-  // 2. Fonction pour basculer l'état d'une seule notification (Lu <-> Non lu)
   const handleToggleRead = (id) => {
     setNotifications((prevNotifications) =>
       prevNotifications.map((notif) =>
@@ -25,88 +23,61 @@ export default function MesNotifications() {
   };
 
   return (
-    <div style={{ padding: '30px' }}>
+    <div className="hp-notif-container">
       
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
-        <h1 style={{ color: '#0f2e5b', margin: 0, fontSize: '24px' }}>Mes notifications</h1>
+      <div className="hp-notif-header">
+        <h1 className="hp-notif-title">Mes notifications</h1>
         
-        {/* Bouton global : Tout marquer comme lu */}
         <button 
           type="button"
           onClick={handleMarkAllAsRead}
-          style={{ background: 'none', border: 'none', color: '#3b82f6', fontWeight: 'bold', cursor: 'pointer', fontSize: '14px' }}
+          className="hp-notif-btn-all"
         >
           Tout marquer comme lu
         </button>
       </div>
       
-      <div style={{ backgroundColor: 'white', borderRadius: '12px', padding: '20px', boxShadow: '0 4px 10px rgba(0,0,0,0.05)' }}>
-        
+      <div className="hp-notif-card-box">
         {notifications.map((notif) => {
-          // Si notif.read est true, le message est lu (fond transparent). S'il est false, il est non lu (fond bleuté).
           const isRead = Boolean(notif.read);
+          const isAbsence = notif.type === 'absence';
 
           return (
             <div 
               key={notif.id} 
-              style={{ 
-                display: 'flex', gap: '15px', padding: '15px', 
-                borderBottom: '1px solid #edf2f7', alignItems: 'center', 
-                backgroundColor: isRead ? 'transparent' : '#f0f9ff', 
-                borderRadius: '8px', marginBottom: '10px' 
-              }}
+              className={`hp-notif-item ${isRead ? 'read' : 'unread'}`}
             >
               
-              <div style={{ 
-                width: '40px', height: '40px', borderRadius: '50%', 
-                backgroundColor: notif.type === 'absence' ? '#fee2e2' : '#dbeafe', 
-                color: notif.type === 'absence' ? '#ef4444' : '#3b82f6', 
-                display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '18px' 
-              }}>
-                {notif.type === 'absence' ? '🔔' : '📄'}
+              <div className={`hp-notif-icon ${isAbsence ? 'absence' : 'default'}`}>
+                {isAbsence ? '🔔' : '📄'}
               </div>
               
-              <div style={{ flex: 1 }}>
-                <p style={{ margin: '0 0 5px 0', fontWeight: 'bold', color: '#0f2e5b', fontSize: '15px' }}>
+              <div className="hp-notif-content">
+                <p className="hp-notif-item-title">
                   {notif.title}
                 </p>
-                <p style={{ margin: '0 0 5px 0', color: '#4a5568', fontSize: '13px' }}>
+                <p className="hp-notif-item-msg">
                   {notif.message}
                 </p>
-                <p style={{ margin: 0, color: '#a0aec0', fontSize: '12px' }}>
+                <p className="hp-notif-item-date">
                   {notif.date}
                 </p>
               </div>
 
-              {/* Bouton individuel pour changer l'état */}
               <button
                 type="button"
                 onClick={() => handleToggleRead(notif.id)}
-                style={{
-                  backgroundColor: isRead ? '#edf2f7' : '#ebf8ff',
-                  color: isRead ? '#4a5568' : '#2b6cb0',
-                  border: '1px solid',
-                  borderColor: isRead ? '#cbd5e0' : '#bee3f8',
-                  borderRadius: '6px',
-                  padding: '6px 12px',
-                  fontSize: '12px',
-                  fontWeight: 'bold',
-                  cursor: 'pointer',
-                  marginRight: '10px',
-                  whiteSpace: 'nowrap',
-                }}
+                className={`hp-notif-action-btn ${isRead ? 'read' : 'unread'}`}
               >
                 {isRead ? 'Marquer comme non lu' : 'Marquer comme lu'}
               </button>
 
-              {/* Point bleu visible uniquement si le message n'est pas lu */}
               {!isRead && (
-                <div style={{ width: '10px', height: '10px', backgroundColor: '#3b82f6', borderRadius: '50%', flexShrink: 0 }}></div>
+                <div className="hp-notif-dot"></div>
               )}
             </div>
           );
         })}
-
       </div>
     </div>
   );

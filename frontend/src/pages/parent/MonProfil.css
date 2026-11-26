@@ -1,0 +1,151 @@
+/* Conteneur principal centré */
+.hp-profile-container {
+  padding: 30px;
+  max-width: 700px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.hp-profile-title {
+  color: #0f2e5b;
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+
+/* Cartes de formulaire (Infos & Sécurité) */
+.hp-profile-card {
+  background-color: white;
+  border-radius: 12px;
+  padding: 30px;
+  margin-bottom: 25px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  box-sizing: border-box;
+}
+
+.hp-profile-card-title {
+  margin: 0 0 20px 0;
+  color: #0f2e5b;
+  font-size: 18px;
+}
+
+/* Organisation des champs */
+.hp-profile-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Grille 2 colonnes pour Nom et Prénom sur grand écran */
+.hp-profile-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.hp-profile-label {
+  display: block;
+  margin-bottom: 8px;
+  color: #718096;
+  font-size: 14px;
+}
+
+.hp-profile-input {
+  width: 100%;
+  padding: 12px;
+  height: 45px;
+  background-color: #f4f7f6;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 15px;
+  box-sizing: border-box;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.hp-profile-input:focus {
+  border-color: #3182ce;
+}
+
+/* Messages de retour */
+.hp-profile-msg-info {
+  color: #2f855a;
+  font-weight: bold;
+  margin: 0;
+  font-size: 14px;
+}
+
+.hp-profile-msg-pwd {
+  color: #0f2e5b;
+  font-weight: bold;
+  margin: 0;
+  font-size: 14px;
+}
+
+/* Boutons d'action */
+.hp-profile-btn-primary,
+.hp-profile-btn-secondary {
+  margin-top: 10px;
+  padding: 12px 24px;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  width: fit-content;
+  font-size: 14px;
+  transition: opacity 0.2s ease;
+}
+
+.hp-profile-btn-primary {
+  background-color: #3182ce;
+}
+
+.hp-profile-btn-secondary {
+  background-color: #0f2e5b;
+}
+
+.hp-profile-btn-primary:hover,
+.hp-profile-btn-secondary:hover {
+  opacity: 0.9;
+}
+
+/* Zone et bouton de déconnexion */
+.hp-profile-logout-wrap {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 30px;
+}
+
+.hp-profile-btn-logout {
+  padding: 12px 30px;
+  background-color: #fee2e2;
+  color: #c53030;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 14px;
+  transition: background-color 0.2s ease;
+}
+
+.hp-profile-btn-logout:hover {
+  background-color: #fed7d7;
+}
+
+/* Adaptation mobile */
+@media screen and (max-width: 600px) {
+  .hp-profile-container {
+    padding: 15px;
+  }
+
+  .hp-profile-card {
+    padding: 20px;
+  }
+
+  .hp-profile-btn-primary,
+  .hp-profile-btn-secondary,
+  .hp-profile-btn-logout {
+    width: 100%;
+    text-align: center;
+  }
+}

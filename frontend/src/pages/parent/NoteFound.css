@@ -1,0 +1,25 @@
+/* 1. Conteneur centré sur toute la hauteur de l'écran */
+.hp-notfound {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh; /* Laisse de la place si tu as un menu en haut */
+  padding: 20px;    /* Marge de sécurité sur mobile */
+  text-align: center;
+  box-sizing: border-box;
+}
+
+/* 2. Limitation de la largeur du texte pour une lecture agréable */
+.hp-notfound p {
+  max-width: 450px;
+  width: 100%;
+  margin: 10px 0 25px;
+}
+
+/* 3. Ajustement de la taille du titre sur petit écran */
+@media screen and (max-width: 480px) {
+  .hp-notfound h1 {
+    font-size: 24px;
+  }
+}

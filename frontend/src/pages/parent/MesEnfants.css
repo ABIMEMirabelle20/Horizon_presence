@@ -1,0 +1,45 @@
+/* Conteneur principal de la page */
+.hp-children-container {
+  padding: 30px;
+  box-sizing: border-box;
+}
+
+/* Grille responsive des cartes d'enfants */
+.hp-children-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+}
+
+/* Style de chaque carte enfant */
+.hp-child-card {
+  background-color: white;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  cursor: pointer;
+  text-align: center;
+  border: 1px solid #e2e8f0;
+  transition: transform 0.2s ease;
+}
+
+.hp-child-card:hover {
+  transform: translateY(-2px);
+}
+
+/* Avatar */
+.hp-child-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin: 0 auto 15px auto;
+  display: block;
+  object-fit: cover;
+}
+
+/* Ajustement pour mobile */
+@media screen and (max-width: 480px) {
+  .hp-children-container {
+    padding: 15px;
+  }
+}
