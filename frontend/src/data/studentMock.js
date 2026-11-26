@@ -26,7 +26,6 @@ export const emploiDuTemps = [
   { jour: 'Vendredi', creneau: '14h – 16h', matiere: 'Projet IA', salle: 'Labo 1', couleur: 'blue' },
 ];
 
-
 // statut : 'present' | 'absent' | 'retard'
 export const historique = [
   { id: 1, date: '2026-11-24', matiere: 'IA Avancée', creneau: '08h – 10h', statut: 'present' },
@@ -55,7 +54,7 @@ export const notificationsInitiales = [
   { id: 2, type: 'absence', titre: 'Absence enregistrée', message: 'Tu as été marqué absent en Bases de Données le 19 nov. Pense à la justifier.', date: '2026-11-19T11:00:00', lue: false },
   { id: 3, type: 'emploi', titre: 'Emploi du temps modifié', message: 'Le cours de Réseaux de vendredi est déplacé en Salle 7.', date: '2026-11-18T09:15:00', lue: true },
   { id: 4, type: 'retard', titre: 'Retard enregistré', message: 'Un retard de 10 min a été noté en Probabilités le 17 nov.', date: '2026-11-17T10:20:00', lue: true },
-  { id: 5, type: 'demande', titre: 'Demande refusée', message: 'Ta demande d\'autorisation du 28 oct. a été refusée.', date: '2026-10-26T16:45:00', lue: true },
+  { id: 5, type: 'demande', titre: 'Demande refusée', message: "Ta demande d'autorisation du 28 oct. a été refusée.", date: '2026-10-26T16:45:00', lue: true },
 ];
 
 export const profil = {
