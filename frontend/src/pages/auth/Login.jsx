@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { GraduationCap, Mail, Lock, Eye, EyeOff, AlertCircle } from 'lucide-react';
+import { Mail, Lock, Eye, EyeOff, AlertCircle } from 'lucide-react';
 import { useAuth } from '../../context/AuthContext';
+import loginIllustration from '../../assets/login-illustration.jpg';
 
 export default function Login() {
   const navigate = useNavigate();
@@ -53,7 +54,7 @@ export default function Login() {
       <div className="bg-white rounded-3xl shadow-xl border border-slate-100 w-full max-w-4xl overflow-hidden grid grid-cols-1 md:grid-cols-2 min-h-[580px]">
         
         {/* Left Side: Brand & Visual Hero (matches 01-connexion.jpeg) */}
-        <div className="relative bg-gradient-to-b from-[#EBF3FC] via-[#DBEAFE]/80 to-[#BFDBFE]/60 p-8 sm:p-10 flex flex-col justify-between overflow-hidden">
+        <div className="relative bg-gradient-to-b from-[#EBF3FC] via-[#DBEAFE]/70 to-[#C7DBF8]/80 p-8 sm:p-10 flex flex-col justify-between overflow-hidden">
           {/* Subtle curved background overlay */}
           <div className="absolute inset-x-0 bottom-0 pointer-events-none">
             <svg
@@ -74,10 +75,12 @@ export default function Login() {
             </svg>
           </div>
 
-          {/* Top Brand & Title */}
-          <div className="text-center z-10 pt-2">
-            <div className="inline-flex p-3 bg-white/90 backdrop-blur-xs rounded-2xl shadow-sm text-royal mb-4 border border-white">
-              <GraduationCap className="w-9 h-9" />
+          {/* Top Brand & Official FontAwesome Graduation Cap Icon */}
+          <div className="text-center z-10 pt-1">
+            <div className="inline-flex p-3 bg-white/90 backdrop-blur-xs rounded-2xl shadow-sm text-royal mb-3.5 border border-white">
+              <svg className="w-8 h-8 fill-current text-royal" viewBox="0 0 640 512">
+                <path d="M320 32c-8.1 0-16.1 1.4-23.7 4.1L24.3 137.4C9.8 142.7 0 156.6 0 172s9.8 29.3 24.3 34.6l57.7 21.1V368c0 44.2 86 80 192 80s192-35.8 192-80V227.7l57.7-21.1c14.5-5.3 24.3-19.2 24.3-34.6s-9.8-29.3-24.3-34.6L343.7 36.1C336.1 33.4 328.1 32 320 32zM128 408c0 35.3 86 72 192 72s192-36.7 192-72L512 256.6l-168.3 61.6c-15.1 5.5-32.3 5.5-47.4 0L128 256.6V408zm480-168c0 22.1-17.9 40-40 40s-40-17.9-40-40V216.7l80-29.3V240z" />
+              </svg>
             </div>
             <h1 className="text-3xl font-extrabold text-ink tracking-tight">
               Horizon <span className="text-royal">Présence</span>
@@ -87,31 +90,15 @@ export default function Login() {
             </p>
           </div>
 
-          {/* 3D-Style Books & Cap Illustration (Vectorial SVG) */}
-          <div className="relative z-10 my-8 flex items-center justify-center">
-            <div className="relative w-48 h-40 flex items-center justify-center">
-              {/* Stack of books */}
-              <div className="w-36 h-8 bg-royal/90 rounded-lg shadow-md transform -rotate-1 border-t-2 border-white/40"></div>
-              <div className="absolute w-40 h-9 bg-white rounded-lg shadow-lg transform rotate-2 top-16 border border-slate-200/80 flex items-center px-3">
-                <div className="w-full h-1 bg-slate-200 rounded"></div>
-              </div>
-              <div className="absolute w-44 h-10 bg-royal rounded-xl shadow-xl top-24 border-t-2 border-white/30 flex items-center justify-between px-3">
-                <div className="w-1.5 h-6 bg-mist rounded"></div>
-                <div className="text-[10px] tracking-widest text-white/80 font-mono">HORIZON</div>
-              </div>
-
-              {/* Graduation Cap on top of books */}
-              <div className="absolute -top-3 left-1/2 -translate-x-1/2 flex flex-col items-center">
-                {/* Cap diamond */}
-                <div className="w-24 h-12 bg-horizon rounded-md shadow-lg transform rotate-12 flex items-center justify-center border-t border-white/20">
-                  <div className="w-3 h-3 rounded-full bg-warn/90"></div>
-                </div>
-                {/* Cap skull base */}
-                <div className="w-12 h-6 bg-[#1b344e] rounded-b-lg -mt-3 shadow-md"></div>
-                {/* Tassel cord */}
-                <div className="absolute top-2 right-4 w-1 h-12 bg-warn rounded-full transform rotate-12"></div>
-                <div className="absolute top-12 right-2 w-2.5 h-4 bg-warn rounded-sm"></div>
-              </div>
+          {/* Premium 3D Books & Graduation Cap Image */}
+          <div className="relative z-10 my-4 flex items-center justify-center">
+            <div className="relative group">
+              <div className="absolute -inset-2 bg-gradient-to-r from-royal/20 to-mist/40 rounded-3xl blur-md opacity-60"></div>
+              <img
+                src={loginIllustration}
+                alt="Horizon Présence - Chapeau et Livres 3D"
+                className="relative w-52 h-52 sm:w-60 sm:h-60 object-contain drop-shadow-2xl rounded-2xl transition-transform duration-300 group-hover:scale-105"
+              />
             </div>
           </div>
 
@@ -168,7 +155,7 @@ export default function Login() {
                 <button
                   type="button"
                   onClick={() => setShowPassword((prev) => !prev)}
-                  className="absolute right-3.5 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 transition-colors"
+                  className="absolute right-3.5 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 transition-colors cursor-pointer"
                 >
                   {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
                 </button>
@@ -197,7 +184,7 @@ export default function Login() {
             <button
               type="submit"
               disabled={isLoading}
-              className="w-full py-3 px-4 bg-royal hover:bg-royal/90 text-white font-semibold text-sm rounded-xl transition-all shadow-sm hover:shadow active:scale-[0.99] disabled:opacity-50 mt-2"
+              className="w-full py-3 px-4 bg-royal hover:bg-royal/90 text-white font-semibold text-sm rounded-xl transition-all shadow-sm hover:shadow active:scale-[0.99] disabled:opacity-50 mt-2 cursor-pointer"
             >
               {isLoading ? 'Connexion en cours...' : 'Se connecter'}
             </button>
@@ -217,9 +204,8 @@ export default function Login() {
           <button
             type="button"
             onClick={() => handleDemoLogin('admin')}
-            className="w-full py-2.5 px-4 bg-white hover:bg-slate-50 text-slate-700 font-medium text-sm rounded-xl border border-slate-200 transition-all flex items-center justify-center gap-3 shadow-2xs hover:border-slate-300"
+            className="w-full py-2.5 px-4 bg-white hover:bg-slate-50 text-slate-700 font-medium text-sm rounded-xl border border-slate-200 transition-all flex items-center justify-center gap-3 shadow-2xs hover:border-slate-300 cursor-pointer"
           >
-            {/* Google Colorful G icon */}
             <svg className="w-4 h-4" viewBox="0 0 24 24">
               <path
                 fill="#4285F4"
@@ -241,7 +227,7 @@ export default function Login() {
             <span>Se connecter avec Google</span>
           </button>
 
-          {/* Quick Demo Access Bar (From Mirabelle's Guide) */}
+          {/* Quick Demo Access Bar */}
           <div className="mt-6 pt-5 border-t border-slate-100">
             <p className="text-[11px] font-semibold text-slate-400 uppercase tracking-wider text-center mb-2.5">
               Accès démo rapide par rôle
@@ -250,28 +236,28 @@ export default function Login() {
               <button
                 type="button"
                 onClick={() => handleDemoLogin('admin')}
-                className="py-1.5 px-2 bg-mist/60 hover:bg-mist text-royal text-xs font-semibold rounded-lg transition-colors text-center"
+                className="py-1.5 px-2 bg-mist/60 hover:bg-mist text-royal text-xs font-semibold rounded-lg transition-colors text-center cursor-pointer"
               >
                 Admin
               </button>
               <button
                 type="button"
                 onClick={() => handleDemoLogin('teacher')}
-                className="py-1.5 px-2 bg-ice hover:bg-mist text-royal text-xs font-semibold rounded-lg transition-colors text-center"
+                className="py-1.5 px-2 bg-ice hover:bg-mist text-royal text-xs font-semibold rounded-lg transition-colors text-center cursor-pointer"
               >
                 Enseignant
               </button>
               <button
                 type="button"
                 onClick={() => handleDemoLogin('student')}
-                className="py-1.5 px-2 bg-slate-100 hover:bg-slate-200/80 text-ink text-xs font-semibold rounded-lg transition-colors text-center"
+                className="py-1.5 px-2 bg-slate-100 hover:bg-slate-200/80 text-ink text-xs font-semibold rounded-lg transition-colors text-center cursor-pointer"
               >
                 Élève
               </button>
               <button
                 type="button"
                 onClick={() => handleDemoLogin('parent')}
-                className="py-1.5 px-2 bg-slate-100 hover:bg-slate-200/80 text-ink text-xs font-semibold rounded-lg transition-colors text-center"
+                className="py-1.5 px-2 bg-slate-100 hover:bg-slate-200/80 text-ink text-xs font-semibold rounded-lg transition-colors text-center cursor-pointer"
               >
                 Parent
               </button>
