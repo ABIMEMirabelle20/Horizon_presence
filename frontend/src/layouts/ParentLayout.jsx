@@ -13,16 +13,23 @@ import Breadcrumb from '../components/common/Breadcrumb.jsx'
 import { useParent } from '../context/useParent.js'
 
 // 3 entrées seulement : Mes enfants, Notifications et Profil sont à faire par le binôme.
-const PARENT_NAV_ITEMS = [
+
+ const PARENT_NAV_ITEMS = [
   { to: '/parent', label: 'Accueil', Icon: LayoutDashboard, end: true },
+  { to: '/parent/enfants', label: 'Mes enfants', Icon: GraduationCap },
   { to: '/parent/assiduite', label: 'Assiduité', Icon: ClipboardCheck },
   { to: '/parent/justifier-absence', label: 'Justifier une absence', Icon: FilePlus2 },
+  { to: '/parent/notifications', label: 'Mes notifications', Icon: ShieldCheck },
+  { to: '/parent/profil', label: 'Mon profil', Icon: LayoutDashboard }
 ]
 
 const PAGE_TITLES = {
   '/parent': 'Tableau de bord',
   '/parent/assiduite': 'Assiduité',
   '/parent/justifier-absence': 'Justifier une absence',
+  '/parent/enfants': 'Mes enfants',
+  '/parent/notifications': 'Mes notifications',
+  '/parent/profil': 'Mon profil',
 }
 
 export default function ParentLayout() {

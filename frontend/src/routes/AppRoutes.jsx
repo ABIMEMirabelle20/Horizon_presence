@@ -4,6 +4,9 @@ import ParentDashboard from '../pages/parent/ParentDashboard.jsx'
 import Assiduite from '../pages/parent/Assiduite.jsx'
 import JustifyAbsence from '../pages/parent/JustifyAbsence.jsx'
 import ParentLogin from '../pages/parent/ParentLogin.jsx'
+import MesEnfants from '../pages/parent/MesEnfants.jsx'
+import MesNotifications from '../pages/parent/MesNotifications.jsx'
+import MonProfil from '../pages/parent/MonProfil.jsx'
 import NotFound from '../pages/parent/NotFound.jsx'
 import { useParent } from '../context/useParent.js'
 
@@ -26,6 +29,9 @@ export default function AppRoutes() {
       >
         <Route index element={<ParentDashboard />} />
         <Route path="assiduite" element={<Assiduite />} />
+        <Route path="enfants" element={<MesEnfants />} />
+        <Route path="notifications" element={<MesNotifications />} />
+        <Route path="profil" element={<MonProfil />} />
         <Route path="presences" element={<Navigate to="/parent/assiduite" replace />} />
         <Route path="emploi-du-temps" element={<Navigate to="/parent/assiduite" replace />} />
         <Route path="justifier-absence" element={<JustifyAbsence />} />

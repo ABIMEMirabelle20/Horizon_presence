@@ -11,11 +11,26 @@ export const parentUser = {
 }
 
 export const children = [
-  { id: 1, name: 'Aminata Abime', className: 'L2-A', level: 'Licence 2', rate: 92, tone: 'royal' },
-  { id: 2, name: 'Koffi Abime', className: 'L1-B', level: 'Licence 1', rate: 78, tone: 'steel' },
-  { id: 3, name: 'Sarah Abime', className: 'L3-A', level: 'Licence 3', rate: 96, tone: 'fresh' },
+  { 
+    id: 1, 
+    name: 'Aminata Abime', 
+    className: 'CM2-A', 
+    avatar:'https://api.dicebear.com/7.x/avataaars/png?seed=Aminata&mouth=smile' 
+  },
+  { 
+    id: 2, 
+    name: 'Koffi Abime', 
+    className: '6ème B', 
+    avatar: 'https://api.dicebear.com/7.x/avataaars/png?seed=Koffi&mouth=smile' 
+    
+  },
+  { 
+    id: 3, 
+    name: 'Sarah Abime', 
+    className: '5ème A', 
+    avatar: 'https://api.dicebear.com/7.x/avataaars/png?seed=Sarah&mouth=smile' 
+  },
 ]
-
 // Une entrée par jour du mois de novembre 2026 (18 jours renseignés).
 const statusesByChild = {
   1: ['present', 'present', 'absent', 'present', 'excused', 'present', 'present',
