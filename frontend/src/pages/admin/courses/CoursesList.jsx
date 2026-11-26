@@ -1,13 +1,13 @@
 import { useState, useEffect } from 'react';
-import { 
-  Search, 
-  Plus, 
-  Edit2, 
-  Trash2, 
-  BookOpen, 
-  RefreshCw, 
-  AlertCircle, 
-  ChevronLeft, 
+import {
+  Search,
+  Plus,
+  Edit2,
+  Trash2,
+  BookOpen,
+  RefreshCw,
+  AlertCircle,
+  ChevronLeft,
   ChevronRight
 } from 'lucide-react';
 import { getCourses, createCourse, updateCourse, deleteCourse, getClasses, getTeachers } from '../../../api/courses';
@@ -289,11 +289,10 @@ export default function CoursesList() {
                   key={page}
                   type="button"
                   onClick={() => setCurrentPage(page)}
-                  className={`w-7 h-7 rounded-lg font-medium transition-all ${
-                    currentPage === page
+                  className={`w-7 h-7 rounded-lg font-medium transition-all ${currentPage === page
                       ? 'bg-royal text-white shadow-sm'
                       : 'text-slate-600 hover:bg-white hover:border hover:border-slate-200'
-                  }`}
+                    }`}
                 >
                   {page}
                 </button>

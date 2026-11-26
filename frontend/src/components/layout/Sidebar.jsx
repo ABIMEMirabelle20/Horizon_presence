@@ -1,4 +1,4 @@
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import {
   GraduationCap,
   LayoutDashboard,
@@ -15,6 +15,7 @@ import {
   LogOut,
   X,
 } from 'lucide-react';
+import { useAuth } from '../../context/AuthContext';
 
 const MENU_ITEMS = [
   { label: 'Tableau de bord', path: '/', icon: LayoutDashboard },
@@ -32,10 +33,17 @@ const MENU_ITEMS = [
 
 export default function Sidebar({ isOpen, onClose }) {
   const location = useLocation();
+  const navigate = useNavigate();
+  const { logout } = useAuth();
 
   const isCurrentPath = (path) => {
     if (path === '/') return location.pathname === '/';
     return location.pathname.startsWith(path);
+  };
+
+  const handleLogout = () => {
+    logout();
+    navigate('/connexion');
   };
 
   return (
@@ -100,7 +108,8 @@ export default function Sidebar({ isOpen, onClose }) {
         <div className="p-4 border-t border-white/10">
           <button
             type="button"
-            className="w-full flex items-center gap-3 px-3 py-2 text-sm text-white/70 hover:text-white hover:bg-white/10 rounded-xl transition-colors"
+            onClick={handleLogout}
+            className="w-full flex items-center gap-3 px-3 py-2 text-sm text-white/70 hover:text-white hover:bg-white/10 rounded-xl transition-colors cursor-pointer"
           >
             <LogOut className="w-4 h-4" />
             <span>Déconnexion</span>

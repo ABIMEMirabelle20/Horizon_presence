@@ -96,8 +96,8 @@ export default function ScheduleSlotModal({
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/40 backdrop-blur-sm animate-fadeIn">
-      <div className="bg-white rounded-2xl w-full max-w-lg shadow-xl border border-slate-100 overflow-hidden">
-        <div className="flex items-center justify-between px-6 py-4 border-b border-slate-100 bg-slate-50/50">
+      <div className="bg-white rounded-2xl w-full max-w-lg shadow-xl border border-slate-100 overflow-hidden max-h-[92vh] flex flex-col">
+        <div className="flex items-center justify-between px-6 py-4 border-b border-slate-100 bg-slate-50/50 flex-shrink-0">
           <div className="flex items-center gap-3">
             <div className="p-2 bg-mist/60 text-royal rounded-xl">
               <Clock className="w-5 h-5" />
@@ -120,7 +120,7 @@ export default function ScheduleSlotModal({
           </button>
         </div>
 
-        <form onSubmit={handleSubmit} className="p-6 space-y-4">
+        <form onSubmit={handleSubmit} className="p-6 space-y-4 overflow-y-auto">
           {conflictError && (
             <div className="p-3.5 text-sm text-danger bg-danger/10 border border-danger/20 rounded-xl flex items-start gap-2.5">
               <AlertTriangle className="w-5 h-5 flex-shrink-0 text-danger mt-0.5" />

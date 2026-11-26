@@ -2,6 +2,7 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 import DashboardLayout from '../components/layout/DashboardLayout';
 import CoursesList from '../pages/admin/courses/CoursesList';
 import SchedulePage from '../pages/schedule/SchedulePage';
+import Login from '../pages/auth/Login';
 
 export default function AppRoutes() {
   return (
@@ -9,6 +10,16 @@ export default function AppRoutes() {
       <Route
         path="/"
         element={<Navigate to="/admin/cours" replace />}
+      />
+
+      <Route
+        path="/connexion"
+        element={<Login />}
+      />
+
+      <Route
+        path="/login"
+        element={<Navigate to="/connexion" replace />}
       />
 
       <Route
