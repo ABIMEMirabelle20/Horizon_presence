@@ -1,0 +1,11 @@
+.badge {
+  display: inline-block; padding: 0.25rem 0.7rem; border-radius: 999px;
+  font-size: 0.8rem; font-weight: 600;
+}
+.badge--present { background: var(--color-success-soft); color: #167a6d; }
+.badge--absent { background: var(--color-danger-soft); color: var(--color-danger); }
+.badge--retard { background: var(--color-warning-soft); color: var(--color-warning); }
+
+.badge--attente { background: var(--color-warning-soft); color: var(--color-warning); }
+.badge--acceptee { background: var(--color-success-soft); color: #167a6d; }
+.badge--refusee { background: var(--color-danger-soft); color: var(--color-danger); }
