@@ -1,10 +1,7 @@
-import { useState } from 'react';
-import { Outlet } from 'react-router-dom';
 import {
-  Home, CalendarDays, QrCode, CheckCircle2, Clock, FileText, Bell, User, Menu,
+  Home, CalendarDays, QrCode, CheckCircle2, Clock, FileText, Bell, User,
 } from 'lucide-react';
-import Sidebar from '../components/layout/Sidebar';
-import './StudentLayout.css';
+import PortalLayout from '../components/layout/PortalLayout';
 
 const links = [
   { to: '/student', label: 'Mon accueil', icon: Home, end: true },
@@ -18,31 +15,5 @@ const links = [
 ];
 
 export default function StudentLayout() {
-  const [menuOpen, setMenuOpen] = useState(false);
-  const fermer = () => setMenuOpen(false);
-
-  return (
-    <div className="student-layout">
-      <Sidebar links={links} open={menuOpen} onClose={fermer} />
-
-      {menuOpen && <div className="student-layout__overlay" onClick={fermer} />}
-
-      <div className="student-layout__content">
-        <header className="student-layout__topbar">
-          <button
-            className="student-layout__menu-btn"
-            onClick={() => setMenuOpen(true)}
-            aria-label="Ouvrir le menu"
-          >
-            <Menu size={24} />
-          </button>
-          <strong>Horizon Présence</strong>
-        </header>
-
-        <main className="student-layout__main">
-          <Outlet />
-        </main>
-      </div>
-    </div>
-  );
+  return <PortalLayout links={links} />;
 }
